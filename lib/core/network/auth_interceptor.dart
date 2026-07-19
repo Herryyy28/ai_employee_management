@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../config/env.dart';
+import '../config/service_locator.dart';
 
 class AuthInterceptor extends Interceptor {
   @override
@@ -9,9 +10,13 @@ class AuthInterceptor extends Interceptor {
     options.headers['apikey'] = Env.supabaseAnonKey;
     
     // 2. Fetch current active session token and append as Authorization Bearer
-    final session = Supabase.instance.client.auth.currentSession;
-    if (session != null) {
-      options.headers['Authorization'] = 'Bearer ${session.accessToken}';
+    try {
+      final session = sl<SupabaseClient>().auth.currentSession;
+      if (session != null) {
+        options.headers['Authorization'] = 'Bearer ${session.accessToken}';
+      }
+    } catch (_) {
+      // Safe fallback if Supabase client is not fully initialized
     }
 
     return handler.next(options);

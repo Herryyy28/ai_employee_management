@@ -17,9 +17,18 @@ final GetIt sl = GetIt.instance;
 class ServiceLocator {
   ServiceLocator._();
 
+  static bool isSupabaseInitialized = false;
+
   static Future<void> setup() async {
     // 1. Core Services
-    sl.registerLazySingleton<SupabaseClient>(() => Supabase.instance.client);
+    if (isSupabaseInitialized) {
+      sl.registerLazySingleton<SupabaseClient>(() => Supabase.instance.client);
+    } else {
+      sl.registerLazySingleton<SupabaseClient>(() => SupabaseClient(
+        Env.supabaseUrl,
+        Env.supabaseAnonKey,
+      ));
+    }
     sl.registerLazySingleton<DioClient>(() => DioClient());
     sl.registerLazySingleton<AiService>(() {
       if (Env.geminiApiKey.isNotEmpty) {

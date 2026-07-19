@@ -17,12 +17,12 @@ void main() async {
   try {
     if (Env.supabaseUrl.contains('placeholder') || Env.supabaseAnonKey.contains('placeholder')) {
       debugPrint('WARNING: Supabase keys are placeholders. Continuing in offline mode.');
-    } else {
-      await Supabase.initialize(
-        url: Env.supabaseUrl,
-        anonKey: Env.supabaseAnonKey,
-      );
     }
+    await Supabase.initialize(
+      url: Env.supabaseUrl,
+      anonKey: Env.supabaseAnonKey,
+    );
+    ServiceLocator.isSupabaseInitialized = true;
   } catch (e) {
     debugPrint('Supabase initialization failed: $e. Operating in fallback cache mode.');
   }
