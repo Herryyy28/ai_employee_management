@@ -50,6 +50,7 @@ dependencies:
   internet_connection_checker_plus: ^2.5.1
   logger: ^2.3.0
   uuid: ^4.4.0
+  path_provider: ^2.1.6
 
 dev_dependencies:
   flutter_test:
