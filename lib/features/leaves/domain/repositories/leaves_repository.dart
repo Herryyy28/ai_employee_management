@@ -1,4 +1,4 @@
-import '../models/leave_model.dart';
+import '../../data/models/leave_model.dart';
 
 abstract class LeavesRepository {
   Future<void> submitLeave(LeaveModel leave);

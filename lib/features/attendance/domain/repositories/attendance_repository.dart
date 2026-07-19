@@ -1,4 +1,4 @@
-import '../models/attendance_model.dart';
+import '../../data/models/attendance_model.dart';
 
 abstract class AttendanceRepository {
   Future<void> clockIn(AttendanceModel attendance);

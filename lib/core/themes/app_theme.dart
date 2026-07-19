@@ -40,7 +40,7 @@ class AppTheme {
           color: AppColors.lightTextSecondary,
         ),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: AppColors.notionSurface,
         elevation: 0,
         shape: RoundedRectangleBorder(
@@ -105,7 +105,7 @@ class AppTheme {
           color: AppColors.darkTextSecondary,
         ),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: AppColors.obsidianSurface,
         elevation: 0,
         shape: RoundedRectangleBorder(

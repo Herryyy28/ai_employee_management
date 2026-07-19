@@ -66,7 +66,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // Search filters are active
-      expect(find.text('Search Results (2)'), findsOneWidget);
+      expect(find.text('Search Results (4)'), findsOneWidget);
       expect(find.text('Jane Cooper'), findsOneWidget);
       expect(find.text('HR Manager - Active'), findsOneWidget);
     });

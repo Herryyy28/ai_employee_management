@@ -77,6 +77,8 @@ class _QrScannerScreenState extends ConsumerState<QrScannerScreen> {
                     return const Icon(Icons.flash_off, color: Colors.grey);
                   case TorchState.on:
                     return const Icon(Icons.flash_on, color: Colors.yellow);
+                  default:
+                    return const Icon(Icons.flash_auto, color: Colors.blue);
                 }
               },
             ),

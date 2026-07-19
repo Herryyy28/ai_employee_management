@@ -145,7 +145,7 @@ class _LeavesScreenState extends ConsumerState<LeavesScreen> with SingleTickerPr
       children: [
         _buildBalanceCard(context, 'Casual', '12 / 15', Colors.blue),
         _buildBalanceCard(context, 'Sick', '4 / 8', Colors.orange),
-        _buildBalanceCard(context, 'Earned', '8 / 20', Colors.emerald),
+        _buildBalanceCard(context, 'Earned', '8 / 20', Colors.green),
       ],
     );
   }

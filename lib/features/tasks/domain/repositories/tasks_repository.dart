@@ -1,4 +1,4 @@
-import '../models/task_model.dart';
+import '../../data/models/task_model.dart';
 
 abstract class TasksRepository {
   Future<void> createTask(TaskModel task);
