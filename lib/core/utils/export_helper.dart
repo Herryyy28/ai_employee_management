@@ -26,7 +26,7 @@ class ExportHelper {
           return pw.Padding(
             padding: const pw.EdgeInsets.all(32),
             child: pw.Column(
-              cross pw.CrossAxisAlignment.start,
+              crossAxisAlignment: pw.CrossAxisAlignment.start,
               children: [
                 pw.Text(
                   'AI-EMS WORKSPACE PORTAL',
@@ -88,7 +88,7 @@ class ExportHelper {
                   mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                   children: [
                     pw.Text('NET DISBURSED SALARY:', style: pw.TextStyle(fontSize: 16, fontWeight: pw.FontWeight.bold)),
-                    pw.Text('\$${netSalary.toStringAsFixed(2)}', style: pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold, color: PdfColors.emerald700)),
+                    pw.Text('\$${netSalary.toStringAsFixed(2)}', style: pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold, color: PdfColors.green700)),
                   ],
                 ),
                 pw.SizedBox(height: 80),
@@ -116,21 +116,21 @@ class ExportHelper {
 
     // Add headers
     sheetObject.appendRow([
-      CellValue.value('Date'),
-      CellValue.value('Employee Email'),
-      CellValue.value('Clock In'),
-      CellValue.value('Clock Out'),
-      CellValue.value('Status'),
+      TextCellValue('Date'),
+      TextCellValue('Employee Email'),
+      TextCellValue('Clock In'),
+      TextCellValue('Clock Out'),
+      TextCellValue('Status'),
     ]);
 
     // Add rows
     for (var log in logs) {
       sheetObject.appendRow([
-        CellValue.value(log['date']?.toString() ?? ''),
-        CellValue.value(log['email']?.toString() ?? ''),
-        CellValue.value(log['clock_in']?.toString() ?? ''),
-        CellValue.value(log['clock_out']?.toString() ?? 'N/A'),
-        CellValue.value(log['status']?.toString().toUpperCase() ?? ''),
+        TextCellValue(log['date']?.toString() ?? ''),
+        TextCellValue(log['email']?.toString() ?? ''),
+        TextCellValue(log['clock_in']?.toString() ?? ''),
+        TextCellValue(log['clock_out']?.toString() ?? 'N/A'),
+        TextCellValue(log['status']?.toString().toUpperCase() ?? ''),
       ]);
     }
 
